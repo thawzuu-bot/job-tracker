@@ -1,0 +1,10 @@
+{% extends 'tracker/base.html' %}
+{% block content %}
+<h1>Delete Application</h1>
+<p>Are you sure you want to delete "{{application}}"?</p>
+
+<form method="POST">
+ {% csrf_token %}
+ <button type="submit">Yes, delete</button>
+</form>
+{% endblock %}

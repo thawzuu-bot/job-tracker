@@ -1,0 +1,14 @@
+{% extends 'tracker/base.html' %}
+{% block content %}
+ <h1>Add Job Application</h1>
+ 
+ <form method="POST">
+   {% csrf_token %}
+   {{ form.as_p}}
+   <button type="submit">Save</button>
+   {% if application %}
+     <a href="{% url 'calendar' %}">
+ Add Event</a>
+   {% endif %}
+ </form>
+{% endblock %}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{% block title %}Job Tracker{% endblock %}</title>
+  <style>
+    body {
+      font-family: -apple-system, sans-serif;
+      background-color: #f4f4f2;
+      color: #263238;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    nav {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #00838F;
+      font-weight: 600;
+      text-decoration: none;
+      display: block;
+    }
+
+    h1 {
+      color: #E65100;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      border-left: 4px solid #00838F;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      text-align: left;
+    }
+
+    li a {
+      margin-left: 12px;
+      color: #00838F;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    li a:hover {
+      text-decoration: underline;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 1000px;
+      margin-top: 20px;
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      width: 14.28%;
+      text-align: center;
+      vertical-align: top;
+      padding: 6px;
+    }
+
+    th {
+      background-color: #00838F;
+      color: white;
+      height: 30px;
+    }
+
+    td {
+      background-color: #fff;
+      height: 90px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .calendar-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin-top: 10px;
+    }
+
+    .event {
+      font-size: 0.7rem;
+      background-color: #00838F;
+      color: white;
+      border-radius: 3px;
+      padding: 2px 4px;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+    }
+
+    .event.expanded {
+      white-space: normal;
+      overflow: visible;
+      position: relative;
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="{% url 'application_list' %}">Job Applications</a>
+    <a href="{% url 'calendar' %}">Events</a>
+  </nav>
+
+  {% block content %}
+  {% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+{% extends 'tracker/base.html' %}
+
+{% block content %}
+<h2>{{month_name}} {{year}}</h2>
+<div class="calendar-nav">
+  <a href="{% url 'calendar_month' prev_year prev_month %}">Previous</a>
+  {{ month_name }} {{ year }}
+  <a href="{% url 'calendar_month'  next_year next_month %}">Next</a>
+</div>
+
+<table>
+  <tr>
+    <th>Mon</th>
+    <th>Tue</th>
+    <th>Wed</th>
+    <th>Thu</th>
+    <th>Fri</th>
+    <th>Sat</th>
+    <th>Sun</th>
+  </tr>
+  {% for week in cal %}
+  <tr>
+    {% for cell in week %}
+    {% if cell %}
+    <td>
+      <a href="{% url 'event_create' year month cell.day %}"> {{ cell.day }}</a>
+      {% for event in cell.events %}
+      <div class="event" onclick="this.classList.toggle('expanded')">{{ event.application.company }}:
+        {{event.note }}</div>
+      {% endfor %}
+    </td>
+    {% else %}
+    <td></td>
+    {% endif %}
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

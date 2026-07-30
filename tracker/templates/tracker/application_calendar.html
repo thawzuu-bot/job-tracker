@@ -1,0 +1,27 @@
+{% extends 'tracker/base.html' %}
+
+{% block content %}
+
+  <h2>{{month_name}} {{year}}</h2>
+ <div class="calendar-nav">
+  <a href="{% url 'application_calendar_month' application.pk prev_year prev_month %}">Previous</a>
+{{ month_name }} {{ year }}
+<a href="{% url 'application_calendar_month' application.pk next_year next_month %}">Next</a>
+</div>
+  <table>
+   <tr>
+     <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
+   <tr>
+   {% for week in cal %}
+     <tr>
+       {% for day in week %}
+         {% if day != 0 %}
+           <td>{{day}}</td>
+         {% else %}
+           <td></td>
+         {% endif %}
+       {% endfor %}
+     </tr>
+   {% endfor %}
+  </table>
+{% endblock %}
