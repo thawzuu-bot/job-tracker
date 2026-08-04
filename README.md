@@ -1,3 +1,7 @@
+Job Application Tracker
+A full-stack web app built with Python and Django to help job seekers organize and track their job applications in one place — status, deadlines, and interview dates — instead of juggling spreadsheets.
+🔗 Live demo: job-tracker-amce.onrender.com/applications/
+
 Features
 
 Full CRUD — create, view, update, and delete job applications
